@@ -8,6 +8,13 @@ function App() {
   const [total, setTotal] = useState(0);
   const [view, setView] = useState("live");
 
+  const formatTime = (seconds) => {
+    if (!seconds || isNaN(seconds)) return "0s";
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
+  };
+
   const loadLogs = async () => {
     try {
       const res = await fetch("http://localhost:5000/api/logs");
@@ -68,7 +75,7 @@ function App() {
 
       {view === "live" ? (
         <>
-          <p className="text-gray-500 mb-4">Total Time: {total}s</p>
+          <p className="text-gray-500 mb-4">Total Time: {formatTime(total)}</p>
 
           <div className="space-y-4">
             {top.map((log, i) => {
@@ -77,7 +84,7 @@ function App() {
                 <div key={i}>
                   <div className="flex justify-between mb-1 font-medium">
                     <span className="truncate">{log.url}</span>
-                    <span>{log.timeSpent}s</span>
+                    <span>{formatTime(log.timeSpent)}</span>
                   </div>
                   <div className="h-2 bg-gray-300 rounded-full">
                     <div
@@ -99,7 +106,7 @@ function App() {
                 {others.map((log, i) => (
                   <li key={i} className="flex justify-between text-gray-600">
                     <span className="truncate max-w-[200px]">{log.url}</span>
-                    <span>{log.timeSpent}s</span>
+                    <span>{formatTime(log.timeSpent)}</span>
                   </li>
                 ))}
               </ul>
@@ -118,7 +125,7 @@ function App() {
                   {day.sites.map((site, j) => (
                     <li key={j} className="flex justify-between">
                       <span className="truncate max-w-[200px]">{site.url}</span>
-                      <span>{site.totalTime}s</span>
+                      <span>{formatTime(site.totalTime)}</span>
                     </li>
                   ))}
                 </ul>
