@@ -125,7 +125,7 @@ function App() {
                   {day.sites.map((site, j) => (
                     <li key={j} className="flex justify-between">
                       <span className="truncate max-w-[200px]">{site.url}</span>
-                      <span>{formatTime(site.totalTime)}</span>
+                      <span>{formatTime(site.timeSpent)}</span>
                     </li>
                   ))}
                 </ul>
