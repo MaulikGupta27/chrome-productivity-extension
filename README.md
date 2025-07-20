@@ -1,18 +1,5 @@
 # 🚀 Productivity Tracker Chrome Extension
 
-**COMPANY**: CODTECH IT SOLUTIONS
-
-**NAME**: MAULIK GUPTA
-
-**INTERN ID**: CT08DF401
-
-**DOMAIN**: MERN STACK WEB DEVELOPMENT
-
-**DURATION**: 8 WEEKS
-
-**MENTOR**: NEELA SANTOSH
-
-
 This project is a **Chrome Extension** built using the **MERN Stack** (MongoDB, Express.js, React, Node.js). It tracks the time you spend on different websites, blocks distracting ones, and provides usage statistics with daily reports.
 
 ---
